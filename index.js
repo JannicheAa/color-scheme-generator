@@ -10,8 +10,8 @@ const color5El = document.getElementById("color5");
 const hexCodesEl = document.getElementById("hex-codes");
 const colors = [color1El, color2El, color3El, color4El, color5El];
 
-formEl.addEventListener("submit", function (event) {
-  event.preventDefault();
+formEl.addEventListener("submit", function (e) {
+  e.preventDefault();
   console.log("Form submit event captured and prevented default action");
   let cleanHexCode = colorPickerEl.value.substring(1);
   console.log("Clean hex code:", cleanHexCode);
@@ -28,6 +28,7 @@ formEl.addEventListener("submit", function (event) {
   hexCodesEl.innerHTML = newHexCodes;
 });
 document.addEventListener("click", function (e) {
+  e.preventDefault();
   if (e.target.dataset.farge) {
     handleClick(e.target.dataset.farge);
   }
