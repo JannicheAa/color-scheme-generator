@@ -1,4 +1,6 @@
-# co73343ea8c93c5d396d7ac67
+# Fargepalett-generator
+
+Check it out here: https://fargepalett-generator.netlify.app
 
 Quick start:
 
