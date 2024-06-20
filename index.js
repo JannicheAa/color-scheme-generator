@@ -12,27 +12,21 @@ const colors = [color1El, color2El, color3El, color4El, color5El];
 
 formEl.addEventListener("submit", function (event) {
   event.preventDefault();
+  console.log("Form submit event captured and prevented default action");
   let cleanHexCode = colorPickerEl.value.substring(1);
-  fetch(
-    `https://www.thecolorapi.com/scheme?hex=${cleanHexCode}&mode=${selectorEl.value}&count=5`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      hexCodesEl.innerHTML = "";
-      let newHexCodes = "";
-      colors.forEach(function (color, index) {
-        let newColor = (color.style.backgroundColor =
-          data.colors[index].hex.value);
-        color.setAttribute("data-farge", `${newColor}`);
-        newHexCodes += `
+  console.log("Clean hex code:", cleanHexCode);
+  console.log(data);
+  hexCodesEl.innerHTML = "";
+  let newHexCodes = "";
+  colors.forEach(function (color, index) {
+    let newColor = (color.style.backgroundColor = data.colors[index].hex.value);
+    color.setAttribute("data-farge", `${newColor}`);
+    newHexCodes += `
         <li data-farge="${newColor}">${newColor}</li>
         `;
-      });
-      hexCodesEl.innerHTML = newHexCodes;
-    });
+  });
+  hexCodesEl.innerHTML = newHexCodes;
 });
-
 document.addEventListener("click", function (e) {
   if (e.target.dataset.farge) {
     handleClick(e.target.dataset.farge);
