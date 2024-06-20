@@ -35,8 +35,6 @@ formEl.addEventListener("submit", function (event) {
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.farge) {
-    console.log(e.target);
-    console.log(e.target.dataset.farge);
     handleClick(e.target.dataset.farge);
   }
 });
